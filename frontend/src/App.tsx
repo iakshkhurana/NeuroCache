@@ -1,16 +1,30 @@
-import {Button} from "./components/Button";
+import { useState } from "react";
+import { Button } from "./components/Button";
 import { PlusIcon } from "./icons/plus";
 import { ShareIcon } from "./icons/share";
-import {Card} from "./components/Card";
+import { Card } from "./components/Card";
+import { CreateContentModal } from "./components/CreateContentModal";
+import { Sidebar } from "./components/Sidebar";
 
 function App() {
-  return <div className="p-8 space-y-4">
-    <div className="flex gap-4">
-      <Button variant="primary" text="Add content" startIcon={<PlusIcon/>}></Button>
-      <Button variant="secondary" text="Share brain" startIcon={<ShareIcon/>}></Button>
+  const [modalOpen, setModalOpen] = useState(true);
+
+  return (
+    <div>
+      <Sidebar/>
+      <div className="p-4 ml-72 min-h-screen bg-gray-100">
+        <CreateContentModal open={modalOpen} onClose={() => { setModalOpen(false); }} />
+        <div className="flex justify-end gap-4">
+          <Button variant="primary" text="Add content" startIcon={<PlusIcon />} />
+          <Button variant="secondary" text="Share brain" startIcon={<ShareIcon />} />
+        </div>
+        <div className="flex gap-4 mt-8">
+          <Card type="twitter" link="https://x.com/kirat_tw/status/1633685473821425666" title="First tweet" />
+          <Card type="youtube" link="https://www.youtube.com/watch?v=Oo3qsxihXqY" title="First video" />
+        </div>
+      </div>
     </div>
-    <Card title="Sample Twitter Post" link="https://x.com/kanavtwt/status/1939034740721651785?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1939034740721651785%7Ctwgr%5E86df2928d9e11987f754ab8ded96a501885db263%7Ctwcon%5Es1_c10&ref_url=https%3A%2F%2Fpublish.twitter.com%2F%3Furl%3Dhttps%3A%2F%2Ftwitter.com%2Fkanavtwt%2Fstatus%2F1939034740721651785" type="twitter"/>
-  </div>
+  );
 }
 
 export default App;
