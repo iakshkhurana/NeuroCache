@@ -4,10 +4,12 @@ import { Input } from "../components/Input";
 import { signupIcon } from "../icons/userplus";
 import { BACKEND_URL } from "../config";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export function Signup(){
     const usernameRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
+    const navigate = useNavigate();
     function signup(){
         const username = usernameRef.current?.value;
         const password = passwordRef.current?.value;
@@ -16,6 +18,8 @@ export function Signup(){
             password
         }).then(() => {
             alert("You have signed up!");
+            navigate("/signin");
+
         }).catch((error) => {
             console.error("Signup error:", error);
             alert("Signup failed!");
