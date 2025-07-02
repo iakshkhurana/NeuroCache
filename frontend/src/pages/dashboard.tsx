@@ -15,7 +15,7 @@ function Dashboard() {
       <div className="p-4 ml-72 min-h-screen bg-gray-100">
         <CreateContentModal open={modalOpen} onClose={() => { setModalOpen(false); }} />
         <div className="flex justify-end gap-4">
-          <Button variant="primary" text="Add content" startIcon={<PlusIcon />} />
+          <Button onClick={()=>setModalOpen(true)} variant="primary" text="Add content" startIcon={<PlusIcon />} />
           <Button variant="secondary" text="Share brain" startIcon={<ShareIcon />} />
         </div>
         <div className="flex gap-4 mt-8">
