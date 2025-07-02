@@ -156,4 +156,4 @@ app.get("/api/v1/brain/:shareLink", (req, res) => __awaiter(void 0, void 0, void
         content: content
     });
 }));
-app.listen(4000);
+app.listen(3000);

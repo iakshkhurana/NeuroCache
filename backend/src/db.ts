@@ -1,7 +1,11 @@
 
 import mongoose, {model, Schema} from "mongoose";
 
-mongoose.connect("mongodb+srv://aksh123:aksh123@cluster0.dmotrlu.mongodb.net/")
+mongoose.connect("mongodb+srv://businessakshkhurana:akshkhurana@cluster0.xgwe4zw.mongodb.net/").then(() => {
+    console.log("Connected to MongoDB");
+}).catch((err) => {
+    console.error("MongoDB connection error:", err);
+});
 
 const UserSchema = new Schema({
     username: {type: String, unique: true},
